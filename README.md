@@ -1,32 +1,16 @@
 # Volvo Cars (Global Online Digital)
 
-## Front-end coding test (React)
+## Front-end coding test (React) - Emilia Rodriguez Gimenez
 
-Our team's designer has come up with a new design to show our latest and greatest recharge cars on the website.
+### To run this project
 
-Here is how the design look like for desktop and mobile (files are stored under `docs` folder)
+Duplicate .env.local.example, rename it to .env.local, and set your port of choice
 
-### Desktop
+Run this command with your fav package manager
 
-![ProductListDesktop](./docs/ProductList-Desktop.png)
+`launch`
 
-### Mobile
-
-![ProductListDesktop](./docs/ProductList-Mobile.png)
-
-The data required to render the design is under `public/api/cars.json` folder. You need to fetch the data and render it in the browser. The data looks like this:
-
-```json
-[
-  {
-    "id": "xc90-recharge",
-    "modelName": "XC90 Recharge",
-    "bodyType": "suv",
-    "modelType": "plug-in hybrid",
-    "imageUrl": "/images/xc90_recharge.jpg"
-  }
-]
-```
+## --- TASK ---
 
 The product owner is telling you that you can generate the links to the learn and shop pages of each car by concatating the `id` of the car to the learn (`/learn/`) and shop (`/shop/`) urls.
 
@@ -44,3 +28,9 @@ Two extra SVG icons are also provided by our designer which are stored under `do
 
 - If you use our design system component library, [VCC-UI](https://vcc-ui.vercel.app/)
 - If you add a filter bar on the top to filter cars by `bodyType`
+
+## Doubts and comments
+
+Reading the VCC-UI documentation, it seems that you are transitioning from it, to something similar to tailwind.
+That is great! I read [this article](https://vcc-ui.vercel.app/blog/2022-11-23-future-css) and loved the idea. Im using tailwind in my current job and it grew on me.
+I will stick to VCC-UI, as it is a requirement for the test, i hope not to be mistaken.
