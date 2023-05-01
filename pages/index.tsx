@@ -1,33 +1,49 @@
 import { Block, Button, Text } from 'vcc-ui';
+import type { GetStaticProps, NextPage } from 'next';
+import { useCallback, useRef, useState } from 'react';
 
-import { Car } from '../types/Car';
+import type { Car } from '../types/Car';
+import CarList from '../src/components/CarList';
+import CarListFilter from '../src/components/CarListFilter';
 import { fetchData } from '../lib/api/fetchData';
 
-type HomeProps = {
-	cars: Car[];
-};
+interface HomeProps {
+	allCars: Car[];
+}
 
-export default function Home({ cars }: HomeProps) {
+const Home: NextPage<HomeProps> = ({ allCars }) => {
+	const [cars, setCars] = useState<Car[]>(allCars);
+	//INFO: #1 Of the readme
+	const handleFilterChange = useCallback(
+		(filter: string | undefined) => {
+			if (filter) {
+				const filteredCars = allCars.filter((car) => car.bodyType === filter);
+				setCars(filteredCars);
+			} else {
+				setCars(allCars);
+			}
+		},
+		[allCars]
+	);
+
 	return (
 		<Block extend={{ padding: 20 }}>
 			<Text>Cars:</Text>
-			<ul>
-				{cars.map((car) => (
-					<li key={car.id}>
-						{car.modelName} ({car.bodyType})
-					</li>
-				))}
-			</ul>
+			<CarListFilter handleFilterChange={handleFilterChange} cars={allCars} />
+			<CarList cars={cars} />
 		</Block>
 	);
-}
+};
 
-export async function getStaticProps() {
-	const cars = await fetchData('/api/cars.json');
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+	//INFO: #2 Of the readme
 
+	const allCars = await fetchData('/api/cars.json');
 	return {
 		props: {
-			cars,
+			allCars,
 		},
 	};
-}
+};
+
+export default Home;
