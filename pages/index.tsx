@@ -1,37 +1,30 @@
 import { Block, Button, Text } from 'vcc-ui';
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import type { GetStaticProps, NextPage } from 'next';
+import { useCallback, useRef, useState } from 'react';
 
-import { Car } from '../types/Car';
+import type { Car } from '../types/Car';
 import CarList from '../src/components/CarList';
 import CarListFilter from '../src/components/CarListFilter';
 import { fetchData } from '../lib/api/fetchData';
 
-type HomeProps = {
+interface HomeProps {
 	allCars: Car[];
-};
+}
 
-export default function Home({ allCars }: HomeProps) {
+const Home: NextPage<HomeProps> = ({ allCars }) => {
 	const [cars, setCars] = useState<Car[]>(allCars);
-	const [bodyTypeFilter, setBodyTypeFilter] = useState<string | undefined>();
-	const isFirstRender = useRef(true);
 
-	useLayoutEffect(() => {
-		if (isFirstRender.current) {
-			isFirstRender.current = false;
-			return;
-		}
-
-		async function loadData() {
-			const data = await fetchData('/api/cars.json', bodyTypeFilter);
-			setCars(data);
-		}
-
-		loadData();
-	}, [bodyTypeFilter]);
-
-	async function handleFilterChange(filter: string | undefined) {
-		setBodyTypeFilter(filter);
-	}
+	const handleFilterChange = useCallback(
+		(filter: string | undefined) => {
+			if (filter) {
+				const filteredCars = allCars.filter((car) => car.bodyType === filter);
+				setCars(filteredCars);
+			} else {
+				setCars(allCars);
+			}
+		},
+		[allCars]
+	);
 
 	return (
 		<Block extend={{ padding: 20 }}>
@@ -40,14 +33,16 @@ export default function Home({ allCars }: HomeProps) {
 			<CarList cars={cars} />
 		</Block>
 	);
-}
+};
 
-export async function getStaticProps() {
-	const allCars = await fetchData('/api/cars.json', '');
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+	const allCars = await fetchData('/api/cars.json');
 
 	return {
 		props: {
 			allCars,
 		},
 	};
-}
+};
+
+export default Home;
