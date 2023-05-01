@@ -1,49 +1,57 @@
-import { Block, Button, Text } from 'vcc-ui';
 import type { GetStaticProps, NextPage } from 'next';
+import { Spacer, Text, View } from 'vcc-ui';
 import { useCallback, useRef, useState } from 'react';
 
 import type { Car } from '../types/Car';
 import CarList from '../src/components/CarList';
 import CarListFilter from '../src/components/CarListFilter';
+import Footer from '../src/components/Footer';
+import TopBar from '../src/components/TopBar';
 import { fetchData } from '../lib/api/fetchData';
 
 interface HomeProps {
-	allCars: Car[];
+  allCars: Car[];
 }
 
 const Home: NextPage<HomeProps> = ({ allCars }) => {
-	const [cars, setCars] = useState<Car[]>(allCars);
-	//INFO: #1 Of the readme
-	const handleFilterChange = useCallback(
-		(filter: string | undefined) => {
-			if (filter) {
-				const filteredCars = allCars.filter((car) => car.bodyType === filter);
-				setCars(filteredCars);
-			} else {
-				setCars(allCars);
-			}
-		},
-		[allCars]
-	);
+  const [cars, setCars] = useState<Car[]>(allCars);
+  //INFO: #1 Of the readme
+  const handleFilterChange = useCallback(
+    (filter: string | undefined) => {
+      if (filter) {
+        const filteredCars = allCars.filter((car) => car.bodyType === filter);
+        setCars(filteredCars);
+      } else {
+        setCars(allCars);
+      }
+    },
+    [allCars]
+  );
 
-	return (
-		<Block extend={{ padding: 20 }}>
-			<Text>Cars:</Text>
-			<CarListFilter handleFilterChange={handleFilterChange} cars={allCars} />
-			<CarList cars={cars} />
-		</Block>
-	);
+  return (
+    <View extend={{ height: '100vh' }}>
+      <TopBar />
+      <View extend={{ padding: 24 }}>
+        <Text>All Recharge models</Text>
+        <Spacer />
+        <CarListFilter handleFilterChange={handleFilterChange} cars={allCars} />
+        <Spacer />
+        <CarList cars={cars} />
+      </View>
+      <Footer />
+    </View>
+  );
 };
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-	//INFO: #2 Of the readme
+  //INFO: #2 Of the readme
 
-	const allCars = await fetchData('/api/cars.json');
-	return {
-		props: {
-			allCars,
-		},
-	};
+  const allCars = await fetchData('/api/cars.json');
+  return {
+    props: {
+      allCars,
+    },
+  };
 };
 
-export default Home;
+export default Home

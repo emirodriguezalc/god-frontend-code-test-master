@@ -1,4 +1,7 @@
+@import "./palette.css";
 body {
-  background: steelblue;
-  color: white;
+  background: var(--v-color-background-primary);
+  color: var(--v-color-foreground-primary);
+  accent-color: var(--v-color-foreground-accent-blue);
+  margin: 0;
 }

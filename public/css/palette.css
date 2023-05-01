@@ -1,0 +1,22 @@
+:root {
+  --v-color-always-black: #141414;
+  --v-color-always-white: #fff;
+  --_v66ee33: #000000eb;
+  --_v15b171: #0000008f;
+  --_vda0a2d: #00000029;
+  --v-color-foreground-primary: var(--_v66ee33);
+  --v-color-foreground-secondary: var(--_v15b171);
+  --v-color-foreground-inverted: #fff;
+  --v-color-ornament-primary: var(--_vda0a2d);
+  --v-color-background-primary: #fff;
+  --v-color-background-secondary: #fafafa;
+  --v-color-foreground-accent-blue: #2a609d;
+  --v-color-background-accent-blue: #2a609d;
+  --_v492382: #234871;
+  --v-color-foreground-feedback-green: #048220;
+  --v-color-foreground-feedback-orange: #eb7400;
+  --v-color-foreground-feedback-red: #bf2012;
+  --v-color-background-feedback-green: #048220;
+  --v-color-background-feedback-orange: #eb7400;
+  --v-color-background-feedback-red: #bf2012;
+}
