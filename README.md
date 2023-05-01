@@ -34,3 +34,20 @@ Two extra SVG icons are also provided by our designer which are stored under `do
 Reading the VCC-UI documentation, it seems that you are transitioning from it, to something similar to tailwind.
 That is great! I read [this article](https://vcc-ui.vercel.app/blog/2022-11-23-future-css) and loved the idea. Im using tailwind in my current job and it grew on me.
 I will stick to VCC-UI, as it is a requirement for the test, i hope not to be mistaken.
+I converted the provided images and icon into next gen formats to improve performance
+
+## #1
+
+I do this because we already know that "Cars" is a set of data that does not change often, and is also not very big
+so its more performant to get the data once and work with it, this way we avoid unneccesary calls and rerenders.
+How do you do it in production?
+
+## #2
+
+I thought about getting it Client side to be able to store it in the browser (I implemented it with encryption and everything)
+But then, if im using NextJs and i dont need the data on other pages, maybe its better to just fetch it Server Side.
+How do you do it in production?
+
+## Suggestions for the production site
+
+I saw that jpg is used in the hero as a background, webp is usually a pretty easy swap.

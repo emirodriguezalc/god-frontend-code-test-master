@@ -13,7 +13,7 @@ interface HomeProps {
 
 const Home: NextPage<HomeProps> = ({ allCars }) => {
 	const [cars, setCars] = useState<Car[]>(allCars);
-
+	//INFO: #1 Of the readme
 	const handleFilterChange = useCallback(
 		(filter: string | undefined) => {
 			if (filter) {
@@ -36,8 +36,9 @@ const Home: NextPage<HomeProps> = ({ allCars }) => {
 };
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-	const allCars = await fetchData('/api/cars.json');
+	//INFO: #2 Of the readme
 
+	const allCars = await fetchData('/api/cars.json');
 	return {
 		props: {
 			allCars,
