@@ -1,5 +1,5 @@
+import { Block, Spacer, Text, View } from 'vcc-ui';
 import type { GetStaticProps, NextPage } from 'next';
-import { Spacer, Text, View } from 'vcc-ui';
 import { useCallback, useRef, useState } from 'react';
 
 import type { Car } from '../types/Car';
@@ -32,7 +32,15 @@ const Home: NextPage<HomeProps> = ({ allCars }) => {
     <View extend={{ height: '100vh' }}>
       <TopBar />
       <View extend={{ padding: 24 }}>
-        <Text>All Recharge models</Text>
+        <Block extend={{
+          marginBottom: '32px',
+          textAlign: 'center',
+          fromM: {
+            marginBottom: '48px'
+          },
+        }} >
+          <Text variant="cook" subStyle="emphasis">All Recharge models</Text>
+        </Block>
         <Spacer />
         <CarListFilter handleFilterChange={handleFilterChange} cars={allCars} />
         <Spacer />
