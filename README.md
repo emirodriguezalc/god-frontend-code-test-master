@@ -45,6 +45,11 @@ I thought about getting it client-side to be able to store it in the browser (I 
 
 I saw that the production website images had a nice alt description, but also aria-hidden=true. Why was that?
 I went with leaving the image with no aria hidden, and taking the alt description of the production website as a reference to write mine.
+## #4
+
+The LinkButtons component was being updated every time i hovered over the CarListItem component, so i decided to create AnimatedCarDetails to reduce the scope of the hover state as much as possible
+I used react-transition because it was mentioned [here](https://vcc-ui.vercel.app/docs/animation) even tho i was not able to implement it as the documentation stated. I do think that i did something simple and clear. But there is a slight delay that could be improved using css instead of state.
+I do feel like there is too much prop drilling, at least at this stage of the coding process. 
 
 ## Suggestions for the production site
 

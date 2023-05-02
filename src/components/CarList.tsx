@@ -8,10 +8,11 @@ type CarListProps = {
 const CarList = ({ cars }: CarListProps) => {
   return (
     <>
-      {cars.map((car) => (
-        <CarListItem {...car} key={car.id} />
+      {cars.map((car: Car) => (
+        <CarListItem car={car} key={car.id} />
       ))}
     </>
   );
 };
+
 export default CarList;
