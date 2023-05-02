@@ -1,18 +1,18 @@
 import { Car } from '../../types/Car';
+import CarListItem from './CarListItem';
 
 type CarListProps = {
-	cars: Car[];
+  cars: Car[];
 };
 
 const CarList = ({ cars }: CarListProps) => {
-	return (
-		<ul>
-			{cars.map((car) => (
-				<li key={car.id}>
-					{car.modelName} ({car.bodyType})
-				</li>
-			))}
-		</ul>
-	);
+  return (
+    <>
+      {cars.map((car: Car) => (
+        <CarListItem car={car} key={car.id} />
+      ))}
+    </>
+  );
 };
+
 export default CarList;
