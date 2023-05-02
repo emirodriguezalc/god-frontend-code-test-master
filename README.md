@@ -41,6 +41,11 @@ I do this because we already know that "Cars" are a set of data that does not ch
 
 I thought about getting it client-side to be able to store it in the browser (I implemented it with encryption and everything). But then, if I'm using Next.js and I don't need the data on other pages, maybe it's better to just fetch it server-side. How do you do it in production?
 
+## #3
+
+I saw that the production website images had a nice alt description, but also aria-hidden=true. Why was that?
+I went with leaving the image with no aria hidden, and taking the alt description of the production website as a reference to write mine.
+
 ## Suggestions for the production site
 
 I noticed that a JPG is used in the hero as a background. Swapping it for WebP could improve performance.
