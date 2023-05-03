@@ -5,6 +5,7 @@ import { useCallback, useRef, useState } from 'react';
 import type { Car } from '../types/Car';
 import CarList from '../src/components/CarList';
 import CarListFilter from '../src/components/CarListFilter';
+import Carousel from '../src/components/Carousel';
 import Footer from '../src/components/Footer';
 import TopBar from '../src/components/TopBar';
 import { fetchData } from '../lib/api/fetchData';
@@ -44,7 +45,7 @@ const Home: NextPage<HomeProps> = ({ allCars }) => {
         <Spacer />
         <CarListFilter handleFilterChange={handleFilterChange} cars={allCars} />
         <Spacer />
-        <CarList cars={cars} />
+        <Carousel cars={cars} />
       </View>
       <Footer />
     </View>
