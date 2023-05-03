@@ -51,6 +51,28 @@ The LinkButtons component was being updated every time i hovered over the CarLis
 I used react-transition because it was mentioned [here](https://vcc-ui.vercel.app/docs/animation) even tho i was not able to implement it as the documentation stated. I do think that i did something simple and clear. But there is a slight delay that could be improved using css instead of state.
 I do feel like there is too much prop drilling, at least at this stage of the coding process. 
 
+## #5
+
+When working on the carousel's dots, I discovered potential unwanted behavior and fixed it by forcing the carousel to rerender when the cars changed. The rerender is a bit abrupt, so I would have implemented an animation to make it smoother if I had more time. My method of checking if the cars have changed is simple, there are probably better alternatives, such as hashing.
+
+I looked up some hashing implementations, but I found them to be a bit overkill for the scope of this test. Do you use hashing in production?
+
+The unwanted behavior can also be reproduced on the production site. Are we using the same [package](https://www.npmjs.com/package/pure-react-carousel)? While browsing online, I came across [this one](https://www.npmjs.com/package/@volvo-cars/carousel-component/v/0.0.4?activeTab=readme) and chose to work with pure-react-carousel in order to learn how to implement a package that could potentially be part of the current Volvo codebase.
+
+Steps to reproduce the potential unwanted behavior on the production carousel:
+1. Open the site on mobile -> *dot in position 1 of 6
+2. Slide to car number 6 -> *dot in position 6 of 6
+3. Change the filter to SUV, which has 4 cars -> *dot in position 4 of 4
+4. Note how the last element of the carousel is displayed and how the last dot is set to active.
+5. Change the filter to All, which has 6 cars -> *dot in position 4 of 6
+6. Note how the 4th element of the carousel is displayed and how the 4th dot is set to active.
+
+I think that this is misleading because:
+(Steps 1 to 3)
+The last car is an estate body type, so it does not make sense to show the last car of the SUVs when the user changes the filter. We might want to show the first car of the body type selected by the user.
+(Step 5)
+When the user changes the filter back, we show the 4th car of all cars, which would be the third car in the SUV's list, not the 4th one the user was looking at.
+
 ## Suggestions for the production site
 
 I noticed that a JPG is used in the hero as a background. Swapping it for WebP could improve performance.

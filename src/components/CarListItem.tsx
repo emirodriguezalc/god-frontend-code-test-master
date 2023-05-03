@@ -9,7 +9,7 @@ type CarListItemProps = {
 
 const CarListItem = ({ car }: CarListItemProps) => {
   return (
-    <Flex extend={{ padding: '0 12', width: '300px' }}>
+    <Flex extend={{ padding: '0 12' }}>
       {/* INFO: #4 Of the readme */}
       <AnimatedCarDetails car={car} />
       <LinkButtons id={car.id} />
