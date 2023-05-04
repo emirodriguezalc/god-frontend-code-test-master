@@ -44,7 +44,7 @@ const Home: NextPage<HomeProps> = ({ allCars }) => {
             marginBottom: '48px'
           },
         }} >
-          <Text variant="cook" subStyle="emphasis">All Recharge models</Text>
+          <Text variant="ootah" subStyle="emphasis">All Recharge models</Text>
         </Block>
         <Spacer />
         <CarListFilter handleFilterChange={handleFilterChange} cars={allCars} />

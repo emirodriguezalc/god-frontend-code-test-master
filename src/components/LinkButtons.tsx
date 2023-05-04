@@ -12,12 +12,12 @@ const LinkButtons = ({ id }: LinkButtonsProps) => {
       }}
     >
       <Block extend={{ marginLeft: 12, marginRight: 12 }}>
-        <Link textTransform="none" href={`/learn/${id}`} arrow="right">
+        <Link textTransform="none" href={`/${id}/learn/`} arrow="right">
           LEARN
         </Link>
       </Block>
       <Block extend={{ marginLeft: 12, marginRight: 12 }}>
-        <Link textTransform="none" href={`/shop/${id}`} arrow="right">
+        <Link textTransform="none" href={`/${id}/shop/`} arrow="right">
           SHOP
         </Link>
       </Block>

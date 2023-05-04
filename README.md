@@ -31,7 +31,11 @@ Two extra SVG icons are also provided by our designer which are stored under `do
 
 ## Doubts and comments
 
-While reading the VCC-UI documentation, it seems that you are transitioning to something similar to Tailwind. That is great! I read [this article](https://vcc-ui.vercel.app/blog/2022-11-23-future-css) and loved the idea. I'm using Tailwind in my current job, and it has grown on me. However, I will stick to VCC-UI as it is a requirement for the test. I hope not to be mistaken. I converted the provided images and icon into next-gen formats to improve performance.
+While reading the VCC-UI documentation, it seems that you are transitioning to something similar to Tailwind. That is great! I read [this article](https://vcc-ui.vercel.app/blog/2022-11-23-future-css) and loved the idea. I'm using Tailwind in my current job, and it has grown on me. However, I will stick to VCC-UI as it is a requirement for the test. I hope not to be mistaken. I converted the provided images and icon into next-gen formats to improve performance, going from 54kb for each jpg image to 24kb for the webp images.
+
+I havent used React.FC because we are using react 17 and that brings some non optimal implicit behavior like automatically including children as a prop.
+
+I have not prioritised unit testing because of time constraints and the usage of typescript. I have done unit tests for other applications that used vainilla react, with react testing library, jest, etc. What do you think about unit testing when using TS?
 
 ## #1
 
@@ -77,6 +81,9 @@ When the user changes the filter back, we show the 4th car of all cars, which wo
 
 I was not able to align the styles of the filter to production because of time constraints. I got a bit undecisive when picking a navigation component from the library. Do you use Nav or TabNav?
 It would be great to avoid updating the state on the filter to set one tab active, so the component would not be rerendered on each click.
+## #7
+
+This would be a nice way of fetching the data from a specific car to populate the page. The page styles are non existant but i introduced this feature to use a bit of react navigation and Dynamic routes.
 
 ## Suggestions for the production site
 
