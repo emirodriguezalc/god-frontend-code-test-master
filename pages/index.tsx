@@ -5,6 +5,7 @@ import { useCallback, useRef, useState } from 'react';
 import type { Car } from '../types/Car';
 import CarList from '../src/components/CarList';
 import CarListFilter from '../src/components/CarListFilter';
+import Carousel from '../src/components/carousel/Carousel';
 import Footer from '../src/components/Footer';
 import TopBar from '../src/components/TopBar';
 import { fetchData } from '../lib/api/fetchData';
@@ -31,7 +32,11 @@ const Home: NextPage<HomeProps> = ({ allCars }) => {
   return (
     <View extend={{ height: '100vh' }}>
       <TopBar />
-      <View extend={{ padding: 24 }}>
+      <View extend={{
+        fromM: {
+          padding: 24
+        },
+      }}>
         <Block extend={{
           marginBottom: '32px',
           textAlign: 'center',
@@ -44,7 +49,7 @@ const Home: NextPage<HomeProps> = ({ allCars }) => {
         <Spacer />
         <CarListFilter handleFilterChange={handleFilterChange} cars={allCars} />
         <Spacer />
-        <CarList cars={cars} />
+        <Carousel cars={cars} />
       </View>
       <Footer />
     </View>

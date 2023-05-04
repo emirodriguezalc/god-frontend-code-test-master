@@ -1,0 +1,23 @@
+.carousel__dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 4px;
+  border-radius: 12px;
+  background-color: var(--v-color-ornament-primary);
+  border: none;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.carousel__dot:disabled {
+  background-color: var(--v-color-always-black);
+  transition: background-color 0.2s ease-in-out;
+}
+.slide_spacing {
+  padding-right: 16px;
+}
+
+@media (min-width: 479px) {
+  .slide_spacing {
+    padding-right: 24px;
+  }
+}

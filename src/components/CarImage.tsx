@@ -15,7 +15,7 @@ const defaultImageStyle: React.CSSProperties = {
   transition: `transform ${duration}ms ease-in-out`,
   transform: 'scale(1)',
   transformOrigin: 'center',
-  width: '300px',
+  width: '100%',
 };
 
 const transitionImageStyles: {
