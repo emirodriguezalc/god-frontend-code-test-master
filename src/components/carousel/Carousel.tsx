@@ -76,17 +76,15 @@ const Carousel = ({ cars }: CarouselProps) => {
             </Slide>
           ))}
         </Slider>
-        {isMobile ?
+        {isMobile && cars.length > visibleSlides ?
           <Flex extend={{ flexDirection: 'row', justifyContent: 'center' }}>
-            {Array.from({ length: cars.length }, (_, i) => {
-              cars.length > visibleSlides && (
-                <Dot
-                  slide={i}
-                  key={i}
-                  className={`${styles.carousel_dot}`}
-                />
-              )
-            })}
+            {Array.from({ length: cars.length }, (_, i) =>
+              <Dot
+                slide={i}
+                key={i}
+                className={`${styles.carousel_dot}`}
+              />
+            )}
           </Flex>
           : <Flex
             extend={{
