@@ -73,6 +73,11 @@ The last car is an estate body type, so it does not make sense to show the last 
 (Step 5)
 When the user changes the filter back, we show the 4th car of all cars, which would be the third car in the SUV's list, not the 4th one the user was looking at.
 
+## #6
+
+I was not able to align the styles of the filter to production because of time constraints. I got a bit undecisive when picking a navigation component from the library. Do you use Nav or TabNav?
+It would be great to avoid updating the state on the filter to set one tab active, so the component would not be rerendered on each click.
+
 ## Suggestions for the production site
 
 I noticed that a JPG is used in the hero as a background. Swapping it for WebP could improve performance.
