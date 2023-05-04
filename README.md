@@ -33,6 +33,10 @@ Two extra SVG icons are also provided by our designer which are stored under `do
 
 While reading the VCC-UI documentation, it seems that you are transitioning to something similar to Tailwind. That is great! I read [this article](https://vcc-ui.vercel.app/blog/2022-11-23-future-css) and loved the idea. I'm using Tailwind in my current job, and it has grown on me. However, I will stick to VCC-UI as it is a requirement for the test. I hope not to be mistaken. I converted the provided images and icon into next-gen formats to improve performance, going from 54kb for each jpg image to 24kb for the webp images.
 
+I havent used React.FC because we are using react 17 and that brings some non optimal implicit behavior like automatically including children as a prop.
+
+I have not prioritised unit testing because of time constraints and the usage of typescript. I have done unit tests for other applications that used vainilla react, with react testing library, jest, etc. What do you think about unit testing when using TS?
+
 ## #1
 
 I do this because we already know that "Cars" are a set of data that does not change often and is also not very big, so it's more performant to get the data once and work with it. This way, we avoid unnecessary calls and re-renders. How do you do it in production?
