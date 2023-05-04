@@ -78,13 +78,15 @@ const Carousel = ({ cars }: CarouselProps) => {
         </Slider>
         {isMobile ?
           <Flex extend={{ flexDirection: 'row', justifyContent: 'center' }}>
-            {Array.from({ length: cars.length }, (_, i) => (
-              <Dot
-                slide={i}
-                key={i}
-                className={`${styles.carousel_dot}`}
-              />
-            ))}
+            {Array.from({ length: cars.length }, (_, i) => {
+              cars.length > visibleSlides && (
+                <Dot
+                  slide={i}
+                  key={i}
+                  className={`${styles.carousel_dot}`}
+                />
+              )
+            })}
           </Flex>
           : <Flex
             extend={{
@@ -93,19 +95,21 @@ const Carousel = ({ cars }: CarouselProps) => {
             }}
             className={styles.slide_spacing}
           >
-            <ButtonBack
-              className={styles.carousel_button}
-              onClick={() => carouselContext?.previous?.()}
-            >
-              {<Icon type="navigation-chevronback-16" />}
-            </ButtonBack>
-            <Spacer size={1.5} />
-            <ButtonNext
-              className={styles.carousel_button}
-              onClick={() => carouselContext?.next?.()}
-            >
-              {<Icon type="navigation-chevronforward-16" />}
-            </ButtonNext>
+            {cars.length > visibleSlides && <>
+              <ButtonBack
+                className={styles.carousel_button}
+                onClick={() => carouselContext?.previous?.()}
+              >
+                {<Icon type="navigation-chevronback-16" />}
+              </ButtonBack>
+              <Spacer size={1.5} />
+              <ButtonNext
+                className={styles.carousel_button}
+                onClick={() => carouselContext?.next?.()}
+              >
+                {<Icon type="navigation-chevronforward-16" />}
+              </ButtonNext>
+            </>}
           </Flex>}
       </Flex>
     </CarouselProvider >
