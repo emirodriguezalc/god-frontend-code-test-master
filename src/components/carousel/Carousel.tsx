@@ -90,6 +90,7 @@ const Carousel = ({ cars }: CarouselProps) => {
               flexDirection: "row",
               justifyContent: "flex-end",
             }}
+            className={styles.slide_spacing}
           >
             <ButtonBack
               style={{
