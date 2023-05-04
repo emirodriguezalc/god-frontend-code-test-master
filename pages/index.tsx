@@ -1,12 +1,12 @@
 import { Block, Spacer, Text, View } from 'vcc-ui';
 import type { GetStaticProps, NextPage } from 'next';
-import { useCallback, useRef, useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import type { Car } from '../types/Car';
-import CarList from '../src/components/CarList';
 import CarListFilter from '../src/components/CarListFilter';
 import Carousel from '../src/components/carousel/Carousel';
 import Footer from '../src/components/Footer';
+import Head from 'next/head'
 import TopBar from '../src/components/TopBar';
 import { fetchData } from '../lib/api/fetchData';
 
@@ -30,29 +30,35 @@ const Home: NextPage<HomeProps> = ({ allCars }) => {
   );
 
   return (
-    <View extend={{ height: '100vh' }}>
-      <TopBar />
-      <View extend={{
-        fromM: {
-          padding: 24
-        },
-      }}>
-        <Block extend={{
-          marginBottom: '32px',
-          textAlign: 'center',
+    <>
+      <Head>
+        <title>Volvo Cars</title>
+        <link rel="icon" href="/images/logo.svg" />
+      </Head>
+      <View extend={{ height: '100vh' }}>
+        <TopBar />
+        <View extend={{
           fromM: {
-            marginBottom: '48px'
+            padding: 24
           },
-        }} >
-          <Text variant="ootah" subStyle="emphasis">All Recharge models</Text>
-        </Block>
-        <Spacer />
-        <CarListFilter handleFilterChange={handleFilterChange} cars={allCars} />
-        <Spacer />
-        <Carousel cars={cars} />
+        }}>
+          <Block extend={{
+            marginBottom: '32px',
+            textAlign: 'center',
+            fromM: {
+              marginBottom: '48px'
+            },
+          }} >
+            <Text variant="ootah" subStyle="emphasis">All Recharge models</Text>
+          </Block>
+          <Spacer />
+          <CarListFilter handleFilterChange={handleFilterChange} cars={allCars} />
+          <Spacer />
+          <Carousel cars={cars} />
+        </View>
+        <Footer />
       </View>
-      <Footer />
-    </View>
+    </>
   );
 };
 

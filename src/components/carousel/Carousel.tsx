@@ -48,7 +48,8 @@ const Carousel = ({ cars }: CarouselProps) => {
   }, []);
 
   const visibleSlidesLookup = {
-    true: 1.3, // isMobile
+    /* true: 1.3 INFO: #8 Of the readme */
+    true: 1,
     [String(isTablet)]: 2.5,
     [String(isDesktop)]: 4.,
   };
@@ -81,7 +82,7 @@ const Carousel = ({ cars }: CarouselProps) => {
               <Dot
                 slide={i}
                 key={i}
-                className={`${styles.carousel__dot}`}
+                className={`${styles.carousel_dot}`}
               />
             ))}
           </Flex>
@@ -93,41 +94,20 @@ const Carousel = ({ cars }: CarouselProps) => {
             className={styles.slide_spacing}
           >
             <ButtonBack
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "var(--v-color-background-primary)",
-                width: 40,
-                height: 40,
-                borderRadius: 40,
-                border: "1px solid black",
-              }}
+              className={styles.carousel_button}
               onClick={() => carouselContext?.previous?.()}
             >
               {<Icon type="navigation-chevronback-16" />}
             </ButtonBack>
             <Spacer size={1.5} />
             <ButtonNext
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "var(--v-color-background-primary)",
-                width: 40,
-                height: 40,
-                borderRadius: 40,
-                border: "1px solid black",
-              }}
+              className={styles.carousel_button}
               onClick={() => carouselContext?.next?.()}
             >
               {<Icon type="navigation-chevronforward-16" />}
             </ButtonNext>
-
           </Flex>}
       </Flex>
-
-
     </CarouselProvider >
   );
 };

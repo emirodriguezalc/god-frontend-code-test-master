@@ -1,4 +1,4 @@
-.carousel__dot {
+.carousel_dot {
   height: 12px;
   width: 12px;
   margin: 0 4px;
@@ -8,9 +8,24 @@
   transition: background-color 0.2s ease-in-out;
 }
 
-.carousel__dot:disabled {
+.carousel_dot:disabled {
   background-color: var(--v-color-always-black);
   transition: background-color 0.2s ease-in-out;
+}
+.carousel_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--v-color-background-primary);
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  border: 1px solid var(--v-color-always-black);
+  color: var(--v-color-always-black);
+}
+.carousel_button:disabled {
+  pointer-events: none;
+  filter: opacity(0.5);
 }
 .slide_spacing {
   padding-right: 16px;

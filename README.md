@@ -29,7 +29,7 @@ Two extra SVG icons are also provided by our designer which are stored under `do
 - If you use our design system component library, [VCC-UI](https://vcc-ui.vercel.app/)
 - If you add a filter bar on the top to filter cars by `bodyType`
 
-## Doubts and comments
+### Doubts and comments
 
 While reading the VCC-UI documentation, it seems that you are transitioning to something similar to Tailwind. That is great! I read [this article](https://vcc-ui.vercel.app/blog/2022-11-23-future-css) and loved the idea. I'm using Tailwind in my current job, and it has grown on me. However, I will stick to VCC-UI as it is a requirement for the test. I hope not to be mistaken. I converted the provided images and icon into next-gen formats to improve performance, going from 54kb for each jpg image to 24kb for the webp images.
 
@@ -84,7 +84,11 @@ It would be great to avoid updating the state on the filter to set one tab activ
 ## #7
 
 This would be a nice way of fetching the data from a specific car to populate the page. The page styles are non existant but i introduced this feature to use a bit of react navigation and Dynamic routes.
+## #8
+
+I had to change the visibility from 1.3 (that looked more like prod) to 1, because 1.3 would cause two dots to be disabled, and therefore painted black. I was not able to look for a workaround because of time constraints.
 
 ## Suggestions for the production site
 
 I noticed that a JPG is used in the hero as a background. Swapping it for WebP could improve performance.
+Point #5
